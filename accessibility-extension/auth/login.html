@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Student Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 400px;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 20px;
+    }
+
+    .login-card {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      width: 100%;
+      max-width: 360px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      color: #333;
+      font-weight: 600;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .btn-login:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-login:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .error-message {
+      display: none;
+      padding: 12px;
+      background: #fee;
+      border: 1px solid #fcc;
+      border-radius: 8px;
+      color: #c33;
+      font-size: 13px;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .error-message.show {
+      display: block;
+    }
+
+    .loading {
+      text-align: center;
+      color: #667eea;
+      font-size: 13px;
+      margin-top: 12px;
+      display: none;
+    }
+
+    .loading.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <div class="logo">🎓</div>
+    <h2>Student Login</h2>
+    <p class="subtitle">Enter your roll number to continue</p>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label for="roll-number">Roll Number</label>
+        <input 
+          type="text" 
+          id="roll-number" 
+          placeholder="e.g., 2021001" 
+          required 
+          autocomplete="off"
+        >
+      </div>
+
+      <button type="submit" class="btn-login" id="login-btn">
+        Login
+      </button>
+
+      <div class="loading" id="loading">
+        🔄 Verifying...
+      </div>
+
+      <div class="error-message" id="error-msg">
+        Roll number not found. Please try again.
+      </div>
+    </form>
+  </div>
+
+  <script src="../background/supabase-config.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

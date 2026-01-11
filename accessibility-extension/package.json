@@ -1,0 +1,22 @@
+{
+  "name": "accessibility-extension",
+  "version": "1.0.0",
+  "description": "Browser extension providing accessibility tools for students with disabilities in Indian classrooms",
+  "main": "background/service-worker.js",
+  "scripts": {
+    "build": "echo 'No build step required for now'",
+    "test": "echo 'Tests not yet configured'"
+  },
+  "keywords": [
+    "accessibility",
+    "education",
+    "disabilities",
+    "assistive-technology"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  },
+  "devDependencies": {}
+}

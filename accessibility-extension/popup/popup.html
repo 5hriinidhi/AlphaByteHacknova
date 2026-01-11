@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Accessibility Controls</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 360px;
+      max-height: 600px;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      overflow-y: auto;
+    }
+
+    body::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    body::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
+    }
+
+    /* Add this inside your existing <style> tag */
+.logout-btn {
+  width: 100%;
+  padding: 8px 12px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toggle-btn {
+      width: 100%;
+      padding: 10px 14px;
+      background: white;
+      color: #667eea;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .toggle-btn:last-child {
+      margin-bottom: 0;
+    }
+
+    .toggle-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .toggle-btn.active {
+      background: #48bb78;
+      color: white;
+    }
+
+    /* Special styles for login button */
+    .login-btn {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: white;
+      font-weight: 700;
+    }
+
+    .login-btn:hover {
+      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    }
+
+    .login-btn.logged-in {
+      background: #22c55e;
+      color: white;
+    }
+
+    /* Student info display */
+    #student-info {
+      display: none;
+      padding: 10px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 8px;
+      margin-top: 8px;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    #student-info div {
+      margin-bottom: 4px;
+    }
+
+    #student-info div:last-child {
+      margin-bottom: 0;
+    }
+
+    .status {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 12px;
+      opacity: 0.8;
+    }
+
+    .emoji {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🎓 Accessibility Tools</h2>
+
+  <!-- ========== NEW: LOGIN SECTION (ADD THIS) ========== -->
+  <div class="section" id="login-section">
+    <div class="section-title">
+      <span>🔐</span>
+      <span>Authentication</span>
+    </div>
+    <button class="toggle-btn login-btn" id="login-btn">
+      <span class="emoji">🔑</span>
+      <span>Login</span>
+    </button>
+    <div id="student-info">
+      <div>👤 <strong id="student-name-display">Not logged in</strong></div>
+      <div>🎓 Roll: <strong id="roll-number-display">-</strong></div>
+      <div>🏥 Type: <strong id="disability-display">-</strong></div>
+      <button class="logout-btn" id="logout-btn">
+    <span class="emoji">🚪</span>
+    <span>Logout</span>
+  </button>
+    </div>
+  </div>
+  <!-- ========== END NEW SECTION ========== -->
+
+  <!-- ADHD Tools -->
+  <div class="section" id="adhd-section">
+    <div class="section-title">
+      <span>🎯</span>
+      <span>ADHD Tools</span>
+    </div>
+    <button class="toggle-btn" id="toggle-bionic">
+      <span class="emoji">✨</span>
+      <span>Bionic Reading</span>
+    </button>
+    <button class="toggle-btn" id="toggle-blinder">
+      <span class="emoji">🎯</span>
+      <span>Focus Tunnel</span>
+    </button>
+  </div>
+
+  <!-- Hearing Impaired Tools -->
+  <div class="section" id="hearing-section">
+    <div class="section-title">
+      <span>🎧</span>
+      <span>Hearing Tools</span>
+    </div>
+    <button class="toggle-btn" id="toggle-transcribe">
+      <span class="emoji">📝</span>
+      <span>Live Transcription</span>
+    </button>
+  </div>
+
+  <!-- Visually Impaired Tools -->
+  <div class="section" id="visual-section">
+    <div class="section-title">
+      <span>👁️</span>
+      <span>Vision Tools</span>
+    </div>
+    <button class="toggle-btn" id="toggle-reader">
+      <span class="emoji">📖</span>
+      <span>Screen Reader</span>
+    </button>
+    <button class="toggle-btn" id="toggle-image-describer">
+      <span class="emoji">🖼️</span>
+      <span>Image Describer</span>
+    </button>
+    <button class="toggle-btn" id="toggle-braille-box">
+      <span class="emoji">⠃</span>
+      <span>Braille Box</span>
+    </button>
+  </div>
+
+  <!-- Motor Tools -->
+  <div class="section" id="motor-section">
+    <div class="section-title">
+      <span>👆</span>
+      <span>Motor Tools</span>
+    </div>
+    <button class="toggle-btn" id="toggle-bigclick">
+      <span class="emoji">🎯</span>
+      <span>Big Click Mode</span>
+    </button>
+    <button class="toggle-btn" id="toggle-voice-nav">
+      <span class="emoji">🎤</span>
+      <span>Voice Navigation</span>
+    </button>
+  </div>
+
+  <div class="status" id="status">Ready</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

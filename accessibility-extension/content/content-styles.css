@@ -1,0 +1,14 @@
+/* Content script styles - will be populated later */
+
+/* Basic reset for extension elements */
+.accessibility-extension * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent extension UI from being affected by page styles */
+.accessibility-extension {
+  all: initial;
+  font-family: Arial, sans-serif;
+}

@@ -1,0 +1,145 @@
+/* AI Companion Styles */
+
+#ai-companion-container {
+  all: initial;
+  font-family: Arial, sans-serif;
+}
+
+#ai-companion-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 999999;
+  transition: transform 0.2s;
+}
+
+#ai-companion-toggle:hover {
+  transform: scale(1.1);
+}
+
+#ai-companion-chat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  height: 500px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  z-index: 999999;
+  overflow: hidden;
+}
+
+#ai-companion-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#ai-companion-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+}
+
+#ai-companion-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ai-message {
+  padding: 10px 12px;
+  border-radius: 8px;
+  max-width: 80%;
+  word-wrap: break-word;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.ai-message-user {
+  background: #667eea;
+  color: white;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.ai-message-assistant {
+  background: #f0f0f0;
+  color: #333;
+  align-self: flex-start;
+}
+
+.ai-message-system {
+  background: #fff3cd;
+  color: #856404;
+  align-self: center;
+  font-size: 12px;
+}
+
+#ai-companion-input-area {
+  padding: 12px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  gap: 8px;
+}
+
+#ai-companion-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+#ai-companion-input:focus {
+  border-color: #667eea;
+}
+
+#ai-companion-send,
+#ai-companion-voice {
+  padding: 10px 15px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#ai-companion-send:hover,
+#ai-companion-voice:hover {
+  background: #5568d3;
+}
+
+#ai-companion-voice {
+  padding: 10px 12px;
+  font-size: 16px;
+}

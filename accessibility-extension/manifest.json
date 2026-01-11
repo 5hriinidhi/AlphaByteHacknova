@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Accessibility Assistant",
+  "version": "1.0.0",
+  "description": "Assistive tools for students with disabilities",
+  "permissions": ["storage", "activeTab", "scripting", "tabs", "serial"],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*",
+    "https://*.supabase.co/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "background/supabase-config.js",
+        "features/universal/assistant-panel.js",
+        "features/adhd/bionic-reading.js",
+        "features/adhd/blinder-mode.js",
+        "features/adhd/tldr-button.js",
+        "features/motor-disabilities/big-click.js",
+        "features/motor-disabilities/voice-navigation.js",
+        "features/hearing-impaired/live-transcribe.js",
+        "features/visually-impaired/screen-reader.js",
+        "features/visually-impaired/image-describer.js",
+        "features/visually-impaired/braille-box.js"
+      ],
+      "css": [
+        "content/content-styles.css",
+        "features/motor-disabilities/big-click.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html"
+  }
+}

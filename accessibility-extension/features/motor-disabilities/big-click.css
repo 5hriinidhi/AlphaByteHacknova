@@ -1,0 +1,35 @@
+/* Big Click Mode - Larger hit areas */
+.big-click-mode button,
+.big-click-mode [role="button"],
+.big-click-mode a,
+.big-click-mode input[type="button"],
+.big-click-mode input[type="submit"] {
+  min-width: 64px !important;
+  min-height: 48px !important;
+  padding: 0.75rem 1.25rem !important;
+  font-size: 1.1rem !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+}
+
+.big-click-mode button:hover,
+.big-click-mode [role="button"]:hover,
+.big-click-mode a:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.big-click-mode input[type="text"],
+.big-click-mode textarea,
+.big-click-mode select {
+  padding: 0.85rem 1.1rem !important;
+  font-size: 1.05rem !important;
+  min-height: 48px !important;
+}
+
+.big-click-mode button:focus-visible,
+.big-click-mode [role="button"]:focus-visible,
+.big-click-mode a:focus-visible {
+  outline: 4px solid #22c55e !important;
+  outline-offset: 4px !important;
+}

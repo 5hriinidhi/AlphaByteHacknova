@@ -3,11 +3,13 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables');
-}
+export const isSupabaseConfigured = supabaseUrl && supabaseAnonKey;
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Initialize safe client - if config is missing, create a dummy client to prevent crash
+// The app will check isSupabaseConfigured and show an error screen instead
+export const supabase = isSupabaseConfigured
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : createClient('https://placeholder.supabase.co', 'placeholder');
 
 export type DisabilityType = 'visually_impaired' | 'hearing_impaired' | 'adhd' | 'motor_disabilities';
 export type Severity = 'mild' | 'moderate' | 'severe';
